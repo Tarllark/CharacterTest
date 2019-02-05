@@ -141,8 +141,9 @@ public class FirstPersonController : MonoBehaviour {
         updateStatus();
     }
 
-    void levelUp()
+    public void levelUp()
     {
+        if (level >= maxLevel) return;
         level++;
         requiredExp = (int)(1.2F * requiredExp);
         maxMP = (int)(1.1 * maxMP);
@@ -151,7 +152,7 @@ public class FirstPersonController : MonoBehaviour {
         hp = maxHP;
     }
 
-    void updateStatus()
+    public void updateStatus()
     {
         statusUI.transform.Find("HP").GetChild(0).GetComponent <Text>().text = hp.ToString();
         statusUI.transform.Find("MP").GetChild(0).GetComponent<Text>().text = mp.ToString();
@@ -222,7 +223,7 @@ public class FirstPersonController : MonoBehaviour {
         //TO-DO 
         //
         //Show "Death Screen"
-        if (level > 50 || curExp == 0)
+        if (level > 50 || (curExp == 0 && level > 1))
             level--;
         else
             curExp = 0;
