@@ -20,7 +20,8 @@ public class GameController : MonoBehaviour {
             print("Respect your elders!");
         else if (Input.GetKeyDown("1"))
             getText();
-        else if (Input.GetKeyDown("2")) ;
+        else if (Input.GetKeyDown("2"))
+            gameObject.GetComponent<AudioSource>().Play() ;
         // playMusic();
         else if (Input.GetKeyDown("3"))
             spawnObject();
